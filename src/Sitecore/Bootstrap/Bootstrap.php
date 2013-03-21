@@ -20,7 +20,7 @@ class Bootstrap {
     protected $config;
 
     /**
-     * Create a new profiler instance.
+     * Create a new bootstrap instance.
      *
      * @param  Illuminate\View\Environment  $view
      * @param  Illuminate\Config\Repository  $config
@@ -32,11 +32,21 @@ class Bootstrap {
         $this->config = $config;
     }
 
+    /**
+     * Display the bootstrap css scripts
+     *
+     * @return Illuminate\View\View
+     */
     public function loadStyles()
     {
         return $this->view->make('bootstrap::styles', array('responsive' => $this->config->get('bootstrap::responsive', true)));
     }
 
+    /**
+     * Display the bootstrap javascript scripts
+     *
+     * @return Illuminate\View\View
+     */
     public function loadScripts()
     {
         return $this->view->make('bootstrap::scripts');
